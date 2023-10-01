@@ -1,6 +1,11 @@
+
+
+Public Sub updatecustomerinfos()
+
+'update chart data based on selected customere
 'declare sum variables
 Dim pt As PivotTable          'store order PivotTable
-Dim field As PivotTable       ' store reference to the pt filter filed
+Dim field As PivotField        ' store reference to the pt filter filed
 Dim newcus As String          ' store selected customer name
 'referencing the PivotTable
 Set pt = Worksheets("pt").PivotTables("PivotTable3")
@@ -17,4 +22,5 @@ pDon:
       Exit Sub
 nocustomerDate:
       MsgBox ("custmer does not exist")
+
 End Sub
