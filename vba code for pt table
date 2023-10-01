@@ -1,0 +1,20 @@
+'declare sum variables
+Dim pt As PivotTable          'store order PivotTable
+Dim field As PivotTable       ' store reference to the pt filter filed
+Dim newcus As String          ' store selected customer name
+'referencing the PivotTable
+Set pt = Worksheets("pt").PivotTables("PivotTable3")
+Set field = pt.PivotFields("ShipName")
+newcus = Worksheets("Customer Dashboard").Range("B3").Value
+      'apply function
+      With pt
+      field.ClearAllFilters
+      field.CurrentPage = newcus
+      .RefreshTable
+      
+      End With
+pDon:
+      Exit Sub
+nocustomerDate:
+      MsgBox ("custmer does not exist")
+End Sub
